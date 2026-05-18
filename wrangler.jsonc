@@ -4,4 +4,12 @@
   "compatibility_date": "2025-09-24",
   "compatibility_flags": ["nodejs_compat"],
   "main": "src/server.ts",
+  "vars": {
+    "SUPABASE_URL": "https://slgdbiovneibvxtsguni.supabase.co",
+    "SUPABASE_SERVICE_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNsZ2RiaW92bmVpYnZ4dHNndW5pIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3ODk4NzUwMiwiZXhwIjoyMDk0NTYzNTAyfQ.-JWcB7ocnYLD2L3VZ2O5ib29C6Pia3upKS06IPQ2dHc",
+    "RESEND_API_KEY": "re_AwFbYx4a_3MFyazbKzMzppptSTWSgF1ij",
+    "RESEND_FROM_EMAIL": "noreply@mmieducator.com",
+    "ADMIN_EMAIL": "vijayknarwani@yahoo.com",
+    "LOGO_URL": "https://slgdbiovneibvxtsguni.supabase.co/storage/v1/object/public/assets/mmi-logo.png"
+  }
 }

@@ -19,6 +19,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
+import { useServerFn } from "@tanstack/react-start";
+import { submitContact } from "@/lib/contact";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -1101,11 +1103,33 @@ function Mission() {
 /* ---------------- Contact ---------------- */
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", program: "", message: "" });
-  const submit = (e: React.FormEvent) => {
+  const [errors, setErrors] = useState<{ email?: string; phone?: string }>({});
+  const [loading, setLoading] = useState(false);
+  const submit = useServerFn(submitContact);
+
+  const validate = () => {
+    const e: { email?: string; phone?: string } = {};
+    if (!form.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) e.email = "Invalid email address";
+    if (form.phone && !form.phone.match(/^\d{10}$/)) e.phone = "Phone must be 10 digits";
+    setErrors(e);
+    return Object.keys(e).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email) return toast.error("Please fill name & email");
-    toast.success("✅ Thank you! CA Vijaye will respond within 24 hours.");
-    setForm({ name: "", email: "", phone: "", program: "", message: "" });
+    if (!validate()) return;
+    setLoading(true);
+    try {
+      await submit({ data: form });
+      toast.success("✅ Thank you! CA Vijaye will respond within 24 hours.");
+      setForm({ name: "", email: "", phone: "", program: "", message: "" });
+      setErrors({});
+    } catch {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     <section id="contact" className="py-24 bg-white">
@@ -1113,12 +1137,12 @@ function Contact() {
         <SectionLabel>Contact</SectionLabel>
         <SectionTitle>Let's Shape the Future of Finance Together</SectionTitle>
         <div className="mt-14 grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
-          <form onSubmit={submit} className="bg-background p-8 rounded-2xl border reveal space-y-4">
+          <form onSubmit={handleSubmit} className="bg-background p-8 rounded-2xl border reveal space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
               <div><Label htmlFor="c-name">Full Name</Label><Input id="c-name" className="mt-1.5" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} /></div>
-              <div><Label htmlFor="c-email">Email</Label><Input id="c-email" type="email" className="mt-1.5" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} /></div>
+              <div><Label htmlFor="c-email">Email</Label><Input id="c-email" type="email" className={`mt-1.5 ${errors.email ? "border-red-500" : ""}`} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />{errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}</div>
             </div>
-            <div><Label htmlFor="c-phone">Phone</Label><Input id="c-phone" className="mt-1.5" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} /></div>
+            <div><Label htmlFor="c-phone">Phone</Label><Input id="c-phone" className={`mt-1.5 ${errors.phone ? "border-red-500" : ""}`} value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />{errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone}</p>}</div>
             <div>
               <Label>Interested Program</Label>
               <Select value={form.program} onValueChange={(v) => setForm({ ...form, program: v })}>
@@ -1131,7 +1155,9 @@ function Contact() {
               </Select>
             </div>
             <div><Label htmlFor="c-msg">Message</Label><Textarea id="c-msg" rows={4} className="mt-1.5" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} /></div>
-            <Button type="submit" variant="gold" size="lg" className="w-full">Send Message <ArrowRight className="ml-1 h-4 w-4" /></Button>
+            <Button type="submit" variant="gold" size="lg" className="w-full" disabled={loading}>
+              {loading ? "Sending…" : <>Send Message <ArrowRight className="ml-1 h-4 w-4" /></>}
+            </Button>
           </form>
 
           <div className="reveal">
@@ -1220,7 +1246,7 @@ function Footer() {
           </div>
         </div>
         <div className="mt-12 pt-6 border-t border-white/10 text-center text-sm text-white/60">
-          © 2024 CA Vijaye Narwani | MMI Educator. All Rights Reserved.
+          © 2026 CA Vijaye Narwani | MMI Educator. All Rights Reserved.
         </div>
       </div>
     </footer>
