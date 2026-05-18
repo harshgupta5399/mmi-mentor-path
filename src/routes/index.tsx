@@ -116,13 +116,13 @@ function Navbar() {
         <a href="#home" className="flex items-center gap-3">
           <img src={logo} alt="MMI Educator" className="h-12 w-12 rounded-lg" width={48} height={48} />
           <div className="leading-tight">
-            <div className="font-display text-xl font-bold text-navy">MMI Educator</div>
+            <div className={`font-display text-xl font-bold ${scrolled ? "text-navy" : "text-white"}`}>MMI Educator</div>
             <div className="text-[11px] uppercase tracking-widest text-gold font-semibold">CA Vijaye Narwani</div>
           </div>
         </a>
         <nav className="hidden lg:flex items-center gap-7">
           {links.map(([l, h]) => (
-            <a key={h} href={h} className="text-sm font-medium text-navy/80 hover:text-gold transition-colors">
+            <a key={h} href={h} className={`text-sm font-medium transition-colors hover:text-gold ${scrolled ? "text-navy/80" : "text-white"}`}>
               {l}
             </a>
           ))}
@@ -132,7 +132,7 @@ function Navbar() {
             <a href="#contact">Book a Free Session</a>
           </Button>
         </div>
-        <button className="lg:hidden p-2 text-navy" onClick={() => setOpen((s) => !s)} aria-label="Menu">
+        <button className={`lg:hidden p-2 ${scrolled ? "text-navy" : "text-white"}`} onClick={() => setOpen((s) => !s)} aria-label="Menu">
           {open ? <X /> : <Menu />}
         </button>
       </div>
