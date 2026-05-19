@@ -10,7 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 import faviconUrl from "../assets/favicon.ico?url";
-import { WhatsAppButton } from "@/components/ui/WhatsappButton";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
 function NotFoundComponent() {
   return (
