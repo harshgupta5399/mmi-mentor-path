@@ -21,6 +21,7 @@ import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 import { useServerFn } from "@tanstack/react-start";
 import { submitContact } from "@/lib/contact";
+import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -178,7 +179,7 @@ function Hero() {
             <br />Build your future in global finance through expert-led mentorship, certification guidance and career-focused learning.
           </h3>
           <p className="mt-6 text-lg text-white/80 max-w-xl">
-            Vijay Narwani · Global Finance & FinTech Expert · CPA · CA · CMA · CFA · ACCA · CIMA Educator
+            Vijay Narwani · CA | ACMA, CGMA | CPA | CISA | ICAEW Finalist · 26+ Years in CFO & Finance Leadership Across India, GCC & Global Markets
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Button asChild variant="gold" size="xl">
@@ -218,9 +219,9 @@ function Hero() {
               <img src={portrait} alt="Vijay Narwani" className="w-full h-full object-cover" width={400} height={400} />
             </div>
             {[
-              { l: "CPA Educator", t: "-top-2 -left-6" },
-              { l: "ACCA Expert", t: "top-1/2 -right-10" },
-              { l: "FinTech Leader", t: "-bottom-2 left-4" },
+              { l: "CA | CPA | CISA", t: "-top-2 -left-6" },
+              { l: "ACMA, CGMA", t: "top-1/2 -right-10" },
+              { l: "26+ Yrs CFO Leadership", t: "-bottom-2 left-4" },
             ].map((b) => (
               <div key={b.l} className={`absolute ${b.t} bg-white text-navy rounded-full px-4 py-2 text-xs font-semibold shadow-elegant border border-gold/40`}>
                 {b.l}
@@ -293,6 +294,51 @@ const DEFAULT_VIDS: Vid[] = [
   { id: "OPf0YbXqDm0", title: "AI in Finance — Automation Trends", topic: "FinTech", duration: "20:08" },
 ];
 const CATS = ["All", "CPA", "CMA", "ACCA", "IFRS", "FP&A", "FinTech"];
+
+const CORPORATE_DOMAINS = [
+  { icon: "🏭", label: "Manufacturing" },
+  { icon: "🏗️", label: "EPC & Construction" },
+  { icon: "🛢️", label: "Oil & Gas" },
+  { icon: "📦", label: "Trading & Distribution" },
+  { icon: "🔄", label: "Finance Transformation" },
+  { icon: "🌍", label: "GCC Business Operations" },
+  { icon: "📊", label: "IFRS & Global Reporting" },
+  { icon: "⚙️", label: "ERP & Finance Automation" },
+];
+
+function CorporateExperience() {
+  return (
+    <section className="py-20 bg-navy text-white overflow-hidden relative">
+      <div className="absolute inset-0 globe-pattern opacity-40" />
+      <div className="container mx-auto px-4 relative">
+        <div className="text-center reveal">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/15 border border-gold/30 text-gold text-xs font-semibold tracking-wide uppercase">
+            <Briefcase className="h-3.5 w-3.5" /> Corporate Experience
+          </span>
+          <h2 className="mt-4 font-display text-3xl md:text-4xl font-bold text-white">
+            Real-World Industry Expertise
+          </h2>
+          <p className="mt-3 text-white/70 max-w-xl mx-auto">
+            26+ years of hands-on CFO & finance leadership across diverse industries — bringing practical, boardroom-tested knowledge to every mentorship session.
+          </p>
+        </div>
+        <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 reveal">
+          {CORPORATE_DOMAINS.map(({ icon, label }) => (
+            <div
+              key={label}
+              className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-gold/40 transition-all group"
+            >
+              <span className="text-3xl">{icon}</span>
+              <span className="text-sm font-semibold text-white/90 text-center leading-snug group-hover:text-gold transition-colors">
+                {label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function VideoHub() {
   const [videos, setVideos] = useState<Vid[]>(DEFAULT_VIDS);
@@ -770,10 +816,10 @@ function Path() {
 
 /* ---------------- Global Reach ---------------- */
 const REACH = [
-  { region: "India", count: "500+", x: "70%", y: "52%" },
-  { region: "UAE / Qatar", count: "200+", x: "62%", y: "55%" },
-  { region: "UK", count: "120+", x: "48%", y: "32%" },
-  { region: "USA", count: "180+", x: "22%", y: "42%" },
+  { region: "India",       count: "500+", coords: [78.9629,  20.5937] as [number, number] },
+  { region: "GCC", count: "200+", coords: [54.3773,  24.4539] as [number, number] },
+  { region: "UK",          count: "120+", coords: [-1.1743,  52.3555] as [number, number] },
+  { region: "USA",         count: "180+", coords: [-95.7129, 37.0902] as [number, number] },
 ];
 function GlobalReach() {
   return (
@@ -784,24 +830,55 @@ function GlobalReach() {
         <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-display font-bold text-center max-w-3xl mx-auto leading-tight">
           Mentoring Finance Professionals Across Global Markets
         </h2>
-        <div className="mt-14 max-w-5xl mx-auto reveal">
-          <div className="relative aspect-[16/9] rounded-2xl border border-white/10 bg-navy-deep/60 overflow-hidden">
-            <svg viewBox="0 0 100 50" className="absolute inset-0 w-full h-full opacity-25 text-gold" fill="currentColor">
-              <path d="M10,15 Q15,10 22,12 T35,15 L40,18 L45,15 L55,12 L65,15 L75,12 L85,15 L90,18 L88,25 L80,28 L72,25 L65,28 L55,30 L45,28 L35,30 L25,28 L15,25 Z" />
-              <path d="M15,32 Q25,35 35,33 T55,35 L65,38 L75,35 L82,38 L80,42 L70,40 L60,42 L50,40 L40,42 L30,40 L20,38 Z" />
-            </svg>
+        <div className="mt-8 max-w-5xl mx-auto reveal">
+          <div className="relative rounded-2xl border border-white/10 bg-navy-deep/60 overflow-hidden aspect-[16/9]">
+            <ComposableMap
+              projection="geoMercator"
+              projectionConfig={{ scale: 200, center: [30, 25] }}
+              style={{ width: "125%", height: "125%", position: "absolute", inset: 0 }}
+            >
+              <Geographies geography="https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json">
+                {({ geographies }) =>
+                  geographies.map((geo) => (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      style={{
+                        default: { fill: "rgba(255,255,255,0.08)", stroke: "rgba(255,255,255,0.15)", strokeWidth: 0.5, outline: "none" },
+                        hover:   { fill: "rgba(201,168,76,0.25)", stroke: "rgba(201,168,76,0.5)", strokeWidth: 0.5, outline: "none" },
+                        pressed: { fill: "rgba(201,168,76,0.35)", outline: "none" },
+                      }}
+                    />
+                  ))
+                }
+              </Geographies>
+              {REACH.map((r) => (
+                <Marker key={r.region} coordinates={r.coords}>
+                  <circle r={6} fill="#C9A84C" opacity={0.9} />
+                  <circle r={10} fill="#C9A84C" opacity={0.3}>
+                    <animate attributeName="r" from="6" to="16" dur="2s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" from="0.4" to="0" dur="2s" repeatCount="indefinite" />
+                  </circle>
+                  <rect x={-40} y={12} width={80} height={22} rx={4} fill="white" opacity={0.95} />
+                  <text x={0} y={27} textAnchor="middle" fontSize={10} fontWeight="700" fill="#1B3A6B">
+                    {r.count} · {r.region}
+                  </text>
+                </Marker>
+              ))}
+            </ComposableMap>
+          </div>
+          {/* Legend */}
+          {/* <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
             {REACH.map((r) => (
-              <div key={r.region} className="absolute -translate-x-1/2 -translate-y-1/2" style={{ left: r.x, top: r.y }}>
-                <div className="relative">
-                  <span className="absolute inset-0 rounded-full bg-gold animate-ping opacity-60" />
-                  <span className="relative block h-4 w-4 rounded-full bg-gold shadow-gold" />
-                </div>
-                <div className="mt-2 bg-white text-navy px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap shadow-elegant">
-                  {r.count} in {r.region}
+              <div key={r.region} className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3">
+                <span className="h-3 w-3 rounded-full bg-gold shrink-0" />
+                <div>
+                  <div className="text-xs text-white/60">{r.region}</div>
+                  <div className="text-sm font-bold text-gold">{r.count}</div>
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
@@ -815,6 +892,7 @@ const COMPARE = [
   ["Cost", "$$$", "$$", "$$", "$"],
   ["Career Outcome", "Public Acct / CFO", "Mgmt Accounting", "Global Finance", "Statutory / Audit"],
   ["Region", "US (Global)", "US (Global)", "UK (Global)", "India"],
+  ["Best For", "Audit, Advisory, CFO Roles", "FP&A, Business Finance", "International Accounting Careers", "Indian Statutory & Tax Practice"]
 ];
 function Comparison() {
   return (
@@ -889,7 +967,7 @@ function Achievements() {
       <div className="container mx-auto px-4 mt-16">
         <div className="bg-gradient-navy rounded-3xl p-10 text-center reveal">
           <p className="text-2xl md:text-3xl font-display font-semibold text-gold">
-            "From classrooms to boardrooms — nurturing global financial leaders."
+            "Beyond certifications — building global finance leadership."
           </p>
         </div>
       </div>
@@ -908,11 +986,11 @@ function Credentials() {
     ["📚", "Investment Analysis & Portfolio Management (CFA Curriculum – Self-Directed)"],
   ];
   const right = [
-    ["📌", "24+ years in CFO & Finance Director roles"],
-    ["🌐", "Experience across India, Middle East, Global"],
+    ["📌", "26+ years in CFO & Finance Director roles"],
+    ["🌐", "Experience across India, GCC and global markets"],
     ["👥", "Mentored 6,000+ professionals"],
-    ["🧩", "Expert in IFRS, Risk, FP&A, Financial Modeling"],
-    ["🎯", "Helped shape CFO-ready professionals with tech-driven strategy"],
+    ["🧩", "Expertise in IFRS, FP&A, Risk, Valuation & Financial Modeling "],
+    ["🎯", "Preparing professionals for modern CFO and finance leadership roles"],
   ];
   return (
     <section className="py-24 bg-background">
@@ -949,10 +1027,22 @@ function Credentials() {
 /* ---------------- Content Development ---------------- */
 function ContentDev() {
   const items = [
-    "Expert content creator for US, UK & Indian finance certification programs",
-    "Developed MCQs, case studies & structured curriculum for CPA, CMA, ACCA, CFA, CISA, CA",
-    "Transforms complex financial topics into engaging, practical learning materials",
-    "Aligns academic content with real-world business application & global compliance standards",
+    {
+      title: "Academic Learning Frameworks",
+      desc: "Designed academic and professional learning frameworks for US, UK and Indian finance qualification pathways.",
+    },
+    {
+      title: "MCQs, TBSs, Case Studies & Curriculum",
+      desc: "Developed MCQs, TBSs, case studies, structured curriculum and training content across CPA, CMA, CFA, ACCA, CA, EA, CISA, CS and CIA-related finance, audit, taxation and risk domains.",
+    },
+    {
+      title: "Tailor-Made Finance Courses",
+      desc: "Designed customized finance courses for professionals, corporates and learners across financial reporting, FP&A, valuation, modelling, taxation, audit and leadership areas.",
+    },
+    {
+      title: "Business & Compliance Alignment",
+      desc: "Integrates academic finance learning with real-world business strategy, global compliance practices and practical corporate finance application.",
+    },
   ];
   return (
     <section className="py-24 bg-secondary">
@@ -960,10 +1050,15 @@ function ContentDev() {
         <SectionLabel>Curriculum</SectionLabel>
         <SectionTitle>Content Development & Academic Expertise</SectionTitle>
         <div className="mt-12 grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto reveal">
-          {items.map((t) => (
-            <div key={t} className="bg-white p-6 rounded-2xl border flex gap-3">
-              <CheckCircle2 className="h-5 w-5 text-gold mt-0.5 shrink-0" />
-              <p className="text-navy">{t}</p>
+          {items.map((item) => (
+            <div key={item.title} className="bg-white p-6 rounded-2xl border flex flex-col gap-3 hover:shadow-elegant transition-shadow">
+              <div className="flex items-start gap-3">
+                <div className="h-8 w-8 rounded-lg bg-gold/15 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="h-4 w-4 text-gold" />
+                </div>
+                <h4 className="font-display font-bold text-navy text-lg leading-snug">{item.title}</h4>
+              </div>
+              <p className="text-muted-foreground text-sm leading-relaxed pl-11">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -978,16 +1073,16 @@ function ContentDev() {
 /* ---------------- Testimonials ---------------- */
 const TESTI = [
   {
-    q: "Vijay's teaching style is unlike anyone else. He made complex IFRS concepts completely clear with real case studies. Cleared my ACCA with confidence!",
-    a: "Rohan M.", r: "Finance Manager, Dubai",
+    q: "Vijay sir simplified IFRS and advanced accounting concepts in a way I had never experienced before. The practical case studies and structured guidance helped me clear ACCA with much greater confidence.",
+    a: "Rohan M.", r: "Finance Manager | Dubai",
   },
   {
-    q: "His FP&A and Financial Modeling program gave me the skills to get promoted to Finance Controller in under a year. Truly transformational mentorship.",
-    a: "Priya S.", r: "Finance Controller, Mumbai",
+    q: "The FP&A and Financial Modelling sessions gave me practical exposure far beyond theory. Within a year, I was able to transition into a Finance Controller role with significantly stronger analytical confidence.",
+    a: "Priya S.", r: "Finance Controller | Mumbai",
   },
   {
-    q: "From zero knowledge of US GAAP to passing my CPA — Vijay's structured approach and industry examples made all the difference.",
-    a: "Ahmed K.", r: "CPA, Qatar",
+    q: "Coming from a non-US accounting background, I initially struggled with US GAAP and CPA concepts. Vijay’s structured teaching approach and industry examples made the learning process practical and manageable.",
+    a: "Ahmed K.", r: "CPA Professional | Qatar",
   },
 ];
 function Testimonials() {
@@ -1080,9 +1175,9 @@ function LeadMagnet() {
             Download Your Free <span className="text-gold">Finance Career Roadmap</span>
           </h2>
           <p className="mt-4 text-white/80">
-            A step-by-step guide to choosing the right global finance certification for your career goals.
+            A practical guide to navigating CPA, CMA, ACCA, CFA, IFRS and global finance career pathways.
           </p>
-          <p className="mt-4 text-sm text-white/60">Join 10,000+ professionals. No spam.</p>
+          <p className="mt-4 text-sm text-white/60">Trusted by 10,000+ professionals globally.</p>
         </div>
         <form onSubmit={submit} className="bg-white text-navy p-7 rounded-2xl shadow-elegant reveal space-y-4">
           <div>
@@ -1094,7 +1189,7 @@ function LeadMagnet() {
             <Input id="lm-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1.5" />
           </div>
           <Button type="submit" variant="gold" className="w-full" size="lg">
-            <Download className="mr-2 h-4 w-4" /> Send Me the Guide
+            <Download className="mr-2 h-4 w-4" /> Download the Career Roadmap
           </Button>
         </form>
       </div>
@@ -1111,16 +1206,15 @@ function Mission() {
         <div className="text-xs font-bold uppercase tracking-[0.2em] text-gold">Vision</div>
         <h2 className="mt-3 text-4xl md:text-5xl font-display font-bold leading-tight">The Mission Continues</h2>
         <p className="mt-6 text-white/80 text-lg">
-          With 6,000+ professionals empowered globally, the mission is to build tech-driven practical learning
-          platforms that shape tomorrow's finance leaders.
+          With 10,000+ learners and professionals guided globally, the mission is to build practical, technology-driven finance learning platforms that prepare future-ready finance leaders.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          {["🎯 FP&A & Financial Modeling", "🛡️ Risk Management & Compliance", "💡 FinTech Strategy & Leadership"].map((c) => (
+          {["🎯 Strategic FP&A & Financial Modelling ", "🛡️ Enterprise Risk & Compliance", "💡 AI-Driven Finance Transformation", " 🌎 IFRS & Global Reporting"].map((c) => (
             <span key={c} className="px-4 py-2 rounded-full bg-white/5 border border-gold/30 text-sm">{c}</span>
           ))}
         </div>
         <p className="mt-12 text-2xl md:text-3xl font-display font-semibold text-gold leading-snug">
-          "The goal isn't just to pass exams, but to build future CFOs, Controllers, and Finance Visionaries."
+          "The goal isn’t merely to clear exams — it is to develop future CFOs, Controllers, finance strategists, and global business leaders."
         </p>
       </div>
     </section>
@@ -1313,6 +1407,7 @@ function Index() {
       <Navbar />
       <Hero />
       <Stats />
+      <CorporateExperience />
       <About />
       <Expertise />
       <Quiz />
