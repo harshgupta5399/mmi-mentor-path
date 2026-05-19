@@ -10,6 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 import faviconUrl from "../assets/favicon.ico?url";
+import { WhatsAppButton } from "@/components/ui/WhatsappButton";
 
 function NotFoundComponent() {
   return (
@@ -73,16 +74,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "MMI Educator — CA Vijaye Narwani | Global Finance & FinTech Mentor" },
-      { name: "description", content: "CA Vijaye Narwani mentors finance professionals globally — CPA, CMA, ACCA, CFA, CIMA, IFRS. 26+ years, 10,000+ professionals mentored across India, Middle East & beyond." },
-      { name: "author", content: "CA Vijaye Narwani" },
-      { property: "og:title", content: "MMI Educator — CA Vijaye Narwani | Global Finance & FinTech Mentor" },
-      { property: "og:description", content: "CA Vijaye Narwani mentors finance professionals globally — CPA, CMA, ACCA, CFA, CIMA, IFRS. 26+ years, 10,000+ professionals mentored across India, Middle East & beyond." },
+      { title: "MMI Educator — Vijay Narwani | Global Finance & FinTech Mentor" },
+      { name: "description", content: "Vijay Narwani mentors finance professionals globally — CPA, CMA, ACCA, CFA, CIMA, IFRS. 26+ years, 10,000+ professionals mentored across India, Middle East & beyond." },
+      { name: "author", content: "Vijay Narwani" },
+      { property: "og:title", content: "MMI Educator — Vijay Narwani | Global Finance & FinTech Mentor" },
+      { property: "og:description", content: "Vijay Narwani mentors finance professionals globally — CPA, CMA, ACCA, CFA, CIMA, IFRS. 26+ years, 10,000+ professionals mentored across India, Middle East & beyond." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "MMI Educator — CA Vijaye Narwani | Global Finance & FinTech Mentor" },
-      { name: "twitter:description", content: "CA Vijaye Narwani mentors finance professionals globally — CPA, CMA, ACCA, CFA, CIMA, IFRS. 26+ years, 10,000+ professionals mentored across India, Middle East & beyond." },
+      { name: "twitter:title", content: "MMI Educator — Vijay Narwani | Global Finance & FinTech Mentor" },
+      { name: "twitter:description", content: "Vijay Narwani mentors finance professionals globally — CPA, CMA, ACCA, CFA, CIMA, IFRS. 26+ years, 10,000+ professionals mentored across India, Middle East & beyond." },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/bc302175-f12e-4ac5-bfbb-51380340d68a" },
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/bc302175-f12e-4ac5-bfbb-51380340d68a" },
     ],
@@ -123,6 +124,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+       <WhatsAppButton />
     </QueryClientProvider>
   );
 }

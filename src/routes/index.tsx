@@ -7,7 +7,7 @@ import {
   Star, Download, ChevronRight, Menu,
 } from "lucide-react";
 import logo from "@/assets/mmi-logo.png";
-import portrait from "@/assets/vijaye-portrait.jpg";
+import portrait from "@/assets/vijay-portrait.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -75,9 +75,9 @@ function WebinarBanner() {
     <div className="sticky top-0 z-50 bg-gradient-gold text-navy">
       <div className="container mx-auto px-4 py-2.5 flex items-center justify-center gap-3 text-sm font-medium">
         <span className="inline-block h-2 w-2 rounded-full bg-red-600 animate-pulse" />
-        <span className="hidden sm:inline">🔴 LIVE WEBINAR:</span>
-        <span>CPA Exam Strategy — </span>
-        <a href="#contact" className="underline font-semibold">Register Free →</a>
+        <span className="hidden sm:inline">🔴 LIVE MASTERCLASS:</span>
+        <span>CPA, CMA & CIA Success Strategy + Global Finance Career Roadmap — </span>
+        <a href="#contact" className="underline font-semibold">Register Now →</a>
         <button
           aria-label="Dismiss"
           onClick={() => setShow(false)}
@@ -101,7 +101,7 @@ function Navbar() {
   }, []);
   const links = [
     ["Home", "#home"],
-    ["About", "#about"],
+    ["About MMI", "#about"],
     ["Expertise", "#expertise"],
     ["Programs", "#programs"],
     ["Video Lessons", "#videos"],
@@ -110,16 +110,15 @@ function Navbar() {
   ];
   return (
     <header
-      className={`sticky top-0 z-40 transition-all ${
-        scrolled ? "bg-white/95 backdrop-blur shadow-sm" : "bg-transparent"
-      }`}
+      className={`sticky top-0 z-40 transition-all ${scrolled ? "bg-white/95 backdrop-blur shadow-sm" : "bg-transparent"
+        }`}
     >
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         <a href="#home" className="flex items-center gap-3">
           <img src={logo} alt="MMI Educator" className="h-12 w-12 rounded-lg" width={48} height={48} />
           <div className="leading-tight">
             <div className={`font-display text-xl font-bold ${scrolled ? "text-navy" : "text-white"}`}>MMI Educator</div>
-            <div className="text-[11px] uppercase tracking-widest text-gold font-semibold">CA Vijaye Narwani</div>
+            <div className="text-[11px] uppercase tracking-widest text-gold font-semibold">Vijay Narwani</div>
           </div>
         </a>
         <nav className="hidden lg:flex items-center gap-7">
@@ -171,11 +170,15 @@ function Hero() {
             <Sparkles className="h-3.5 w-3.5" /> 26+ Years · 10,000+ Professionals Mentored
           </span>
           <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.05]">
-            From Certification to <span className="text-gold">C-Suite</span> —
-            <br />Your Journey to Finance Leadership Starts Here
+            From Certification to <span className="text-gold">C-Suite</span> Leadership —
+            {/* <br />Build your future in global finance through expert-led mentorship, certification guidance and career-focused learning. */}
           </h1>
+          <h3 className="mt-0 text-4xl md:text-5xl lg:text-3xl font-display font-bold leading-[1.05]">
+            {/* From Certification to <span className="text-gold">C-Suite</span> Leadership — */}
+            <br />Build your future in global finance through expert-led mentorship, certification guidance and career-focused learning.
+          </h3>
           <p className="mt-6 text-lg text-white/80 max-w-xl">
-            CA Vijaye Narwani · Global Finance & FinTech Expert · CPA · CA · CMA · CFA · ACCA · CIMA Educator
+            Vijay Narwani · Global Finance & FinTech Expert · CPA · CA · CMA · CFA · ACCA · CIMA Educator
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Button asChild variant="gold" size="xl">
@@ -184,7 +187,7 @@ function Hero() {
             <Dialog>
               <DialogTrigger asChild>
                 <Button variant="outlineWhite" size="xl">
-                  <Play className="mr-2 h-4 w-4 fill-current" /> Watch Intro Video
+                  <Play className="mr-2 h-4 w-4 fill-current" /> Watch Mentor Introduction
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-w-3xl p-0 overflow-hidden bg-black border-0">
@@ -201,10 +204,10 @@ function Hero() {
             </Dialog>
           </div>
           <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/75">
-            <span className="flex items-center gap-1.5"><Globe className="h-4 w-4 text-gold" /> India & Middle East</span>
+            <span className="flex items-center gap-1.5"><Globe className="h-4 w-4 text-gold" /> India & GCC </span>
             <span className="flex items-center gap-1.5"><Users className="h-4 w-4 text-gold" /> 10,000+ Mentored</span>
             <span className="flex items-center gap-1.5"><Trophy className="h-4 w-4 text-gold" /> 26+ Years</span>
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-gold" /> Global Certifications</span>
+            <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-gold" /> Global Finance Certifications</span>
           </div>
         </div>
 
@@ -212,7 +215,7 @@ function Hero() {
           <div className="relative">
             <div className="absolute inset-0 rounded-full bg-gradient-gold blur-2xl opacity-30 scale-110" />
             <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full border-4 border-gold overflow-hidden shadow-gold bg-navy-deep">
-              <img src={portrait} alt="CA Vijaye Narwani" className="w-full h-full object-cover" width={400} height={400} />
+              <img src={portrait} alt="Vijay Narwani" className="w-full h-full object-cover" width={400} height={400} />
             </div>
             {[
               { l: "CPA Educator", t: "-top-2 -left-6" },
@@ -271,9 +274,9 @@ function Stats() {
     <section className="bg-navy-deep text-white py-14 border-y border-white/5">
       <div className="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-10">
         <StatItem value={10000} suffix="+" label="Professionals Mentored" />
-        <StatItem value={26} suffix="+" label="Years of Experience" />
-        <StatItem value={7} label="Global Certifications" />
-        <StatItem value={3} label="Continents Reached" />
+        <StatItem value={26} suffix="+" label="Years of Leadership Experience" />
+        <StatItem value={7} label="Global Finance Certifications" />
+        <StatItem value={3} label="India & GCC Presence" />
       </div>
     </section>
   );
@@ -326,7 +329,7 @@ function VideoHub() {
     <section id="videos" className="py-24 bg-background">
       <div className="container mx-auto px-4">
         <SectionLabel>Video Lessons</SectionLabel>
-        <SectionTitle>Learn Directly from CA Vijaye Narwani</SectionTitle>
+        <SectionTitle>Learn Directly from Vijay Narwani</SectionTitle>
         <SectionSub>Watch, Learn & Lead — Free Finance Education</SectionSub>
 
         <div className="mt-12 grid lg:grid-cols-3 gap-8 reveal">
@@ -431,7 +434,7 @@ function About() {
       <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-14 items-start">
         <div className="reveal">
           <div className="relative rounded-3xl overflow-hidden border-4 border-gold shadow-elegant">
-            <img src={portrait} alt="CA Vijaye Narwani" className="w-full aspect-[4/5] object-cover" loading="lazy" />
+            <img src={portrait} alt="Vijay Narwani" className="w-full aspect-[4/5] object-cover" loading="lazy" />
           </div>
           <div className="mt-6 flex flex-wrap gap-2">
             {["CA-ICAI", "CPA", "ACMA/CGMA", "CISA", "ICAEW Finalist"].map((c) => (
@@ -442,21 +445,19 @@ function About() {
         <div className="reveal">
           <SectionLabel>About the Educator</SectionLabel>
           <h2 className="mt-3 text-3xl md:text-4xl font-display font-bold text-navy leading-tight">
-            Global Finance & FinTech Expert · Strategic Educator · Leadership Mentor
+            Global Finance Strategist • Leadership Mentor • Corporate Finance Advisor
           </h2>
           <p className="mt-6 text-muted-foreground leading-relaxed">
-            CA Vijaye Narwani is a trusted educator and financial strategist with 26+ years of experience in CFO &
-            Finance Director roles across India, the Middle East, and globally.
+            Vijay Narwani brings over 26 years of leadership experience across corporate finance, strategic planning, financial transformation and global business environments across India and the GCC.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            With a learner-first approach, he turns complex financial concepts into actionable insights — preparing
-            professionals not just to pass exams, but to lead in a global economy.
+            With a learner-first and industry-driven approach, he helps professionals move beyond exam preparation by building practical finance judgment, leadership mindset and global career readiness.
           </p>
           <div className="mt-8 space-y-3">
             {[
-              ["📌", "26+ Years in CFO & Finance Director roles"],
-              ["🌐", "Experience across India, Middle East & Global markets"],
-              ["🎯", "Mentored 6,000+ professionals to certification success"],
+              ["📌", "26+ Years of Finance Leadership Experience"],
+              ["🌐", "Experience Across India & GCC Markets"],
+              ["🎯", "6,000+ Professionals Mentored"],
             ].map(([i, t]) => (
               <div key={t} className="flex items-start gap-3 p-4 rounded-xl bg-background border">
                 <span className="text-xl">{i}</span>
@@ -465,7 +466,7 @@ function About() {
             ))}
           </div>
           <blockquote className="mt-8 border-l-4 border-gold pl-5 italic text-lg text-navy font-display">
-            "From certification to C-suite, I mentor professionals to lead, not just qualify."
+            "From certification to leadership, the goal is not only to qualify — but to lead with confidence."
           </blockquote>
         </div>
       </div>
@@ -481,12 +482,21 @@ const US_CERTS = [
   ["CIA", "Certified Internal Auditor"],
   ["CFA", "Chartered Financial Analyst"],
   ["US GAAP", "Generally Accepted Accounting Principles"],
+  ["US Taxation"],
+  ["Corporate Finance"],
+  ["Financial Reporting & Analysis"]
+
 ];
 const UK_CERTS = [
-  ["CIMA", "Chartered Institute of Mgmt Accountants"],
+  ["CIMA", "Chartered Institute of Management Accountants"],
   ["ACCA", "Association of Chartered Certified Accountants"],
-  ["ICAEW", "Institute of Chartered Accountants E&W"],
+  ["ICAEW", "Institute of Chartered Accountants in England and Wales"],
   ["IFRS / IAS", "International Financial Reporting Standards"],
+  ["DipIFR"],
+  ["UK Taxation"],
+  ["Strategic Business Leadership "],
+  ["Audit & Assurance"],
+
 ];
 
 function CertCard({ name, desc }: { name: string; desc: string }) {
@@ -511,7 +521,7 @@ function Expertise() {
     <section id="expertise" className="py-24 bg-background">
       <div className="container mx-auto px-4">
         <SectionLabel>Expertise</SectionLabel>
-        <SectionTitle>Global Certifications I Teach</SectionTitle>
+        <SectionTitle>Global Finance Certifications & Learning Tracks</SectionTitle>
         <div className="mt-12 max-w-5xl mx-auto reveal">
           <Tabs defaultValue="us">
             <TabsList className="grid grid-cols-2 max-w-md mx-auto h-12 bg-white border">
@@ -524,7 +534,7 @@ function Expertise() {
               </div>
             </TabsContent>
             <TabsContent value="uk" className="mt-8">
-              <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-5 max-w-3xl mx-auto">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {UK_CERTS.map(([n, d]) => <CertCard key={n} name={n} desc={d} />)}
               </div>
             </TabsContent>
@@ -537,9 +547,26 @@ function Expertise() {
 
 /* ---------------- Quiz ---------------- */
 const QUIZ_Q = [
-  { q: "Your region?", opts: ["India", "Middle East", "US", "UK", "Other"] },
-  { q: "Your career goal?", opts: ["Job/Promotion", "Entrepreneurship", "Teaching", "Switch to Finance"] },
-  { q: "Your experience level?", opts: ["Student", "1–5 yrs", "5+ yrs"] },
+  { q: "Where do you plan to build your career?", opts: ["India", "Middle East", "US", "UK", "Other"] },
+  {
+    q: "Your career goal?", opts: ["Career Growth & Promotions",
+      "Global Finance Career ",
+      "Leadership & Management",
+      "Career Transition into Finance",
+      "Entrepreneurship",
+      // "Job/Promotion", "Entrepreneurship", "Teaching", "Switch to Finance"
+    ]
+  },
+  {
+    q: "Your experience level?", opts: [
+      "Student / Fresher",
+      "Early Career (1–5 Years)",
+      "Mid-Level Professional",
+      "Senior Finance Professional"
+
+      // "Student", "1–5 yrs", "5+ yrs"
+    ]
+  },
 ];
 function recommend(answers: string[]) {
   const [region, , exp] = answers;
@@ -588,7 +615,7 @@ function Quiz() {
           ) : (
             <div className="text-center">
               <Trophy className="h-12 w-12 text-gold mx-auto" />
-              <p className="mt-4 uppercase text-xs font-bold tracking-widest text-gold">We Recommend</p>
+              <p className="mt-4 uppercase text-xs font-bold tracking-widest text-gold">Recommended Pathway</p>
               <h3 className="mt-2 text-4xl font-display font-bold text-navy">{result!.cert}</h3>
               <p className="mt-3 text-muted-foreground max-w-md mx-auto">{result!.why}</p>
               <div className="mt-7 flex flex-wrap justify-center gap-3">
@@ -607,10 +634,10 @@ function Quiz() {
 
 /* ---------------- Specializations ---------------- */
 const SPECS = [
-  { i: BarChart3, t: "Financial Modeling & Valuation", d: "Advanced modeling, DCF, business valuation techniques used by top finance professionals globally." },
-  { i: Target, t: "Strategic Planning & Business Finance", d: "FP&A, budgeting, forecasting, and variance analysis for corporate and entrepreneurial success." },
-  { i: ShieldAlert, t: "Risk Management & IFRS Compliance", d: "IAS/IFRS standards, risk frameworks, and compliance strategies for global financial roles." },
-  { i: Bot, t: "AI-Driven FP&A & Finance Automation", d: "Future-ready finance skills including FinTech strategy, AI tools, and automation in finance workflows." },
+  { i: BarChart3, t: "Financial Modeling & Valuation", d: "Advanced financial modeling, business valuation and strategic finance techniques used in global corporate environments." },
+  { i: Target, t: "Strategic Planning & Business Finance", d: "Budgeting, forecasting, performance analysis and strategic planning for modern finance leadership roles." },
+  { i: ShieldAlert, t: "Risk Management & IFRS Compliance", d: "Practical understanding of IFRS, governance, internal controls and enterprise risk frameworks." },
+  { i: Bot, t: "AI-Driven FP&A & Finance Automation", d: "Future-ready finance capabilities integrating AI tools, automation and digital finance workflows." },
 ];
 function Specializations() {
   return (
@@ -637,7 +664,7 @@ function Specializations() {
 /* ---------------- Programs ---------------- */
 const PROGRAMS = [
   { i: BarChart3, t: "Financial Modeling & Business Valuation", d: "DCF, comps, M&A modeling — built for finance pros." },
-  { i: Target, t: "Strategic Financial Planning & Analysis (FP&A)", d: "Budgeting, forecasting & variance frameworks." },
+  { i: Target, t: "Strategic FP&A & Business Finance", d: "Budgeting, forecasting & variance frameworks." },
   { i: Briefcase, t: "Finance for Non-Finance Managers", d: "Demystify finance for leaders across functions." },
   { i: BookOpen, t: "Financial Statement Analysis & Interpretation", d: "Ratios, signals & decision-making toolkit." },
   { i: Compass, t: "Budgeting, Forecasting & Variance Analysis", d: "Drive accountability with structured cycles." },
@@ -652,7 +679,7 @@ function Programs() {
       <div className="container mx-auto px-4 relative">
         <div className="text-xs font-bold uppercase tracking-[0.2em] text-gold text-center">Programs Offered</div>
         <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-display font-bold text-center max-w-3xl mx-auto leading-tight">
-          Specialized Programs for Finance Leaders
+          Executive Programs in Finance & Leadership
         </h2>
         <div className="mt-12 flex gap-6 overflow-x-auto pb-6 -mx-4 px-4 snap-x reveal">
           {PROGRAMS.map(({ i: Icon, t, d }) => (
@@ -663,7 +690,7 @@ function Programs() {
               <h3 className="mt-5 text-lg font-display font-bold leading-snug">{t}</h3>
               <p className="mt-2 text-sm text-white/75">{d}</p>
               <a href="#contact" className="mt-5 inline-flex items-center text-sm font-semibold text-gold">
-                Enquire Now <ChevronRight className="h-4 w-4" />
+                Explore Program <ChevronRight className="h-4 w-4" />
               </a>
             </div>
           ))}
@@ -675,17 +702,17 @@ function Programs() {
 
 /* ---------------- Teaching ---------------- */
 const TEACH = [
-  { i: "🌍", t: "Globally Aligned & Learner-Centric", d: "Tailored content for each region: US, UK, Middle East, and India." },
-  { i: "📋", t: "Practical & Industry-Focused", d: "Hands-on financial modeling, budgeting, and case-based learning." },
-  { i: "🎯", t: "Leadership-Focused Outcomes", d: "Preparing finance leaders, not just exam passers." },
-  { i: "🚀", t: "Future-Ready Finance", d: "Tech-driven tools, FP&A with AI, and automation in finance." },
+  { i: "🌍", t: "Globally Aligned Learning Pathways", d: "Structured programs aligned with US, UK, Middle East and global finance markets." },
+  { i: "📋", t: "Practical, Industry-Focused Learning", d: "Real-world case studies, financial modeling and executive-level applications." },
+  { i: "🎯", t: "Leadership & Career Transformation", d: "Preparing professionals for leadership roles — not just exam success." },
+  { i: "🚀", t: "Future-Ready Finance", d: "AI, automation, FP&A and modern finance tools for the next generation of finance professionals." },
 ];
 function Teaching() {
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-4">
         <SectionLabel>Approach</SectionLabel>
-        <SectionTitle>Innovative, Outcome-Focused Teaching</SectionTitle>
+        <SectionTitle>Beyond Certifications — Building Global Finance Leaders</SectionTitle>
         <div className="mt-12 grid md:grid-cols-2 gap-6 max-w-5xl mx-auto reveal">
           {TEACH.map((b) => (
             <div key={b.t} className="bg-white p-7 rounded-2xl border">
@@ -709,7 +736,7 @@ function Teaching() {
 /* ---------------- Learning Path Timeline ---------------- */
 const STEPS = [
   { n: 1, t: "Choose Certification", i: Compass },
-  { n: 2, t: "Join CA Vijaye's Program", i: GraduationCap },
+  { n: 2, t: "Join MMI’s Mentorship Program", i: GraduationCap },
   { n: 3, t: "Learn with Real Case Studies", i: BookOpen },
   { n: 4, t: "Clear Exam with Confidence", i: Trophy },
   { n: 5, t: "Land Your Global Finance Role", i: Building2 },
@@ -755,7 +782,7 @@ function GlobalReach() {
       <div className="container mx-auto px-4 relative">
         <div className="text-xs font-bold uppercase tracking-[0.2em] text-gold text-center">Global Reach</div>
         <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-display font-bold text-center max-w-3xl mx-auto leading-tight">
-          Teaching Professionals Across the Globe
+          Mentoring Finance Professionals Across Global Markets
         </h2>
         <div className="mt-14 max-w-5xl mx-auto reveal">
           <div className="relative aspect-[16/9] rounded-2xl border border-white/10 bg-navy-deep/60 overflow-hidden">
@@ -951,7 +978,7 @@ function ContentDev() {
 /* ---------------- Testimonials ---------------- */
 const TESTI = [
   {
-    q: "CA Vijaye's teaching style is unlike anyone else. He made complex IFRS concepts completely clear with real case studies. Cleared my ACCA with confidence!",
+    q: "Vijay's teaching style is unlike anyone else. He made complex IFRS concepts completely clear with real case studies. Cleared my ACCA with confidence!",
     a: "Rohan M.", r: "Finance Manager, Dubai",
   },
   {
@@ -959,7 +986,7 @@ const TESTI = [
     a: "Priya S.", r: "Finance Controller, Mumbai",
   },
   {
-    q: "From zero knowledge of US GAAP to passing my CPA — CA Vijaye's structured approach and industry examples made all the difference.",
+    q: "From zero knowledge of US GAAP to passing my CPA — Vijay's structured approach and industry examples made all the difference.",
     a: "Ahmed K.", r: "CPA, Qatar",
   },
 ];
@@ -1122,7 +1149,7 @@ function Contact() {
     setLoading(true);
     try {
       await submit({ data: form });
-      toast.success("✅ Thank you! CA Vijaye will respond within 24 hours.");
+      toast.success("✅ Thank you! Vijay will respond within 24 hours.");
       setForm({ name: "", email: "", phone: "", program: "", message: "" });
       setErrors({});
     } catch {
@@ -1178,7 +1205,7 @@ function Contact() {
               </a>
               <a href="https://linkedin.com/in/ca-vijay-narwani-fca-acmacgma-cpa-cisa" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-background rounded-xl border hover:border-gold transition-colors">
                 <div className="h-11 w-11 rounded-lg bg-gold/15 text-gold flex items-center justify-center"><Linkedin className="h-5 w-5" /></div>
-                <div><div className="text-xs text-muted-foreground uppercase tracking-wider">LinkedIn</div><div className="font-semibold text-navy">CA Vijay Narwani</div></div>
+                <div><div className="text-xs text-muted-foreground uppercase tracking-wider">LinkedIn</div><div className="font-semibold text-navy">Vijay Narwani</div></div>
               </a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-background rounded-xl border hover:border-gold transition-colors">
                 <div className="h-11 w-11 rounded-lg bg-gold/15 text-gold flex items-center justify-center"><Instagram className="h-5 w-5" /></div>
@@ -1189,7 +1216,7 @@ function Contact() {
               "Let's shape the future of finance together."
             </blockquote>
             <div className="mt-6 flex items-center gap-2 text-muted-foreground text-sm">
-              <MapPin className="h-4 w-4" /> India · Qatar · Global
+              <MapPin className="h-4 w-4" /> India • GCC • Global Finance Learning
             </div>
           </div>
         </div>
@@ -1210,7 +1237,7 @@ function Footer() {
               <img src={logo} alt="MMI Educator" className="h-12 w-12 rounded-lg" width={48} height={48} />
               <div>
                 <div className="font-display text-xl font-bold">MMI Educator</div>
-                <div className="text-xs text-gold">CA Vijaye Narwani</div>
+                <div className="text-xs text-gold">Vijay Narwani</div>
               </div>
             </div>
             <p className="mt-4 text-sm text-white/70">Empowering Global Leaders in Finance & Business.</p>
@@ -1246,7 +1273,7 @@ function Footer() {
           </div>
         </div>
         <div className="mt-12 pt-6 border-t border-white/10 text-center text-sm text-white/60">
-          © 2026 CA Vijaye Narwani | MMI Educator. All Rights Reserved.
+          © 2026 Vijay Narwani | MMI Educator. All Rights Reserved.
         </div>
       </div>
     </footer>
@@ -1268,9 +1295,9 @@ function Floating() {
       </a>
       <a
         href="#contact"
-        className="fixed bottom-6 right-6 z-40 px-5 py-3 rounded-full bg-gradient-gold text-navy font-semibold shadow-gold pulse-gold flex items-center gap-2 hover:scale-[1.03] transition-transform"
+        className="fixed bottom-6 right-25 z-40 px-5 py-3 rounded-full bg-gradient-gold text-navy font-semibold shadow-gold pulse-gold flex items-center gap-2 hover:scale-[1.03] transition-transform"
       >
-        <Sparkles className="h-4 w-4" /> Book Free Session
+        <Sparkles className="h-4 w-4" /> Schedule a Mentorship Call
       </a>
     </>
   );

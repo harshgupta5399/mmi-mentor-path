@@ -18,7 +18,7 @@ function header() {
           MMI Educator
         </div>
         <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:${GOLD};margin-top:4px;font-family:Arial,sans-serif">
-          CA Vijaye Narwani
+          Vijay Narwani
         </div>
       </td>
     </tr>`;
@@ -72,7 +72,7 @@ export function confirmationEmail(data: {
           Thank you, ${data.name}!
         </h1>
         <p style="margin:0;font-size:15px;color:#5a6a8a;line-height:1.6">
-          We've received your enquiry and CA Vijaye Narwani will get back to you within <strong style="color:${NAVY}">24 hours</strong>.
+          We've received your enquiry and Vijay Narwani will get back to you within <strong style="color:${NAVY}">24 hours</strong>.
         </p>
       </td>
     </tr>
@@ -103,7 +103,7 @@ export function confirmationEmail(data: {
               <p style="margin:0 0 4px;font-family:Georgia,serif;font-size:16px;font-style:italic;color:rgba(255,255,255,0.9)">
                 "Let's shape the future of finance together."
               </p>
-              <p style="margin:0;font-size:12px;color:${GOLD}">— CA Vijaye Narwani</p>
+              <p style="margin:0;font-size:12px;color:${GOLD}">— Vijay Narwani</p>
             </td>
           </tr>
         </table>
