@@ -854,13 +854,24 @@ function GlobalReach() {
               </Geographies>
               {REACH.map((r) => (
                 <Marker key={r.region} coordinates={r.coords}>
-                  <circle r={6} fill="#C9A84C" opacity={0.9} />
-                  <circle r={10} fill="#C9A84C" opacity={0.3}>
-                    <animate attributeName="r" from="6" to="16" dur="2s" repeatCount="indefinite" />
-                    <animate attributeName="opacity" from="0.4" to="0" dur="2s" repeatCount="indefinite" />
+                  {/* Three staggered expanding rings for a spreading glow effect */}
+                  <circle r={8}  fill="#C9A84C" opacity={0}>
+                    <animate attributeName="r"       from="6"   to="28"  dur="2.4s" begin="0s"    repeatCount="indefinite" />
+                    <animate attributeName="opacity" from="0.6" to="0"   dur="2.4s" begin="0s"    repeatCount="indefinite" />
                   </circle>
-                  <rect x={-40} y={12} width={80} height={22} rx={4} fill="white" opacity={0.95} />
-                  <text x={0} y={27} textAnchor="middle" fontSize={10} fontWeight="700" fill="#1B3A6B">
+                  <circle r={8}  fill="#C9A84C" opacity={0}>
+                    <animate attributeName="r"       from="6"   to="22"  dur="2.4s" begin="0.8s"  repeatCount="indefinite" />
+                    <animate attributeName="opacity" from="0.5" to="0"   dur="2.4s" begin="0.8s"  repeatCount="indefinite" />
+                  </circle>
+                  <circle r={8}  fill="#C9A84C" opacity={0}>
+                    <animate attributeName="r"       from="6"   to="16"  dur="2.4s" begin="1.6s"  repeatCount="indefinite" />
+                    <animate attributeName="opacity" from="0.4" to="0"   dur="2.4s" begin="1.6s"  repeatCount="indefinite" />
+                  </circle>
+                  {/* Solid dot on top */}
+                  <circle r={6} fill="#C9A84C" stroke="white" strokeWidth={1.5} />
+                  {/* Label */}
+                  <rect x={-38} y={10} width={76} height={20} rx={4} fill="#1B3A6B" opacity={0.92} />
+                  <text x={0} y={24} textAnchor="middle" fontSize={8} fontWeight="700" fill="#C9A84C">
                     {r.count} · {r.region}
                   </text>
                 </Marker>
