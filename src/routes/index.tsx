@@ -119,7 +119,7 @@ function Navbar() {
           <img src={logo} alt="MMI Educator" className="h-12 w-12 rounded-lg" width={48} height={48} />
           <div className="leading-tight">
             <div className={`font-display text-xl font-bold ${scrolled ? "text-navy" : "text-white"}`}>MMI Educator</div>
-            <div className="text-[11px] uppercase tracking-widest text-gold font-semibold">Vijay Narwani</div>
+            <div className="text-[11px] uppercase tracking-widest text-gold font-semibold">Global Finance Learning</div>
           </div>
         </a>
         <nav className="hidden lg:flex items-center gap-7">
@@ -179,7 +179,7 @@ function Hero() {
             <br />Build your future in global finance through expert-led mentorship, certification guidance and career-focused learning.
           </h3>
           <p className="mt-6 text-lg text-white/80 max-w-xl">
-            Vijay Narwani · CA | ACMA, CGMA | CPA | CISA | ICAEW Finalist · 26+ Years in CFO & Finance Leadership Across India, GCC & Global Markets
+            In association with Vijay Narwani · CA | ACMA, CGMA | CPA | CISA | ICAEW Finalist · 26+ Years in CFO & Finance Leadership Across India, GCC & Global Markets
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Button asChild variant="gold" size="xl">
@@ -503,7 +503,7 @@ function About() {
             {[
               ["📌", "26+ Years of Finance Leadership Experience"],
               ["🌐", "Experience Across India & GCC Markets"],
-              ["🎯", "6,000+ Professionals Mentored"],
+              ["🎯", "10,000+ Professionals Mentored"],
             ].map(([i, t]) => (
               <div key={t} className="flex items-start gap-3 p-4 rounded-xl bg-background border">
                 <span className="text-xl">{i}</span>
@@ -538,7 +538,7 @@ const UK_CERTS = [
   ["ACCA", "Association of Chartered Certified Accountants"],
   ["ICAEW", "Institute of Chartered Accountants in England and Wales"],
   ["IFRS / IAS", "International Financial Reporting Standards"],
-  ["DipIFR"],
+  ["DipIFR", "Diploma in IFRS"],
   ["UK Taxation"],
   ["Strategic Business Leadership "],
   ["Audit & Assurance"],
@@ -680,7 +680,7 @@ function Quiz() {
 
 /* ---------------- Specializations ---------------- */
 const SPECS = [
-  { i: BarChart3, t: "Financial Modeling & Valuation", d: "Advanced financial modeling, business valuation and strategic finance techniques used in global corporate environments." },
+  { i: BarChart3, t: "Financial Modeling & Business Valuation", d: "Advanced financial modeling, business valuation and strategic finance techniques used in global corporate environments." },
   { i: Target, t: "Strategic Planning & Business Finance", d: "Budgeting, forecasting, performance analysis and strategic planning for modern finance leadership roles." },
   { i: ShieldAlert, t: "Risk Management & IFRS Compliance", d: "Practical understanding of IFRS, governance, internal controls and enterprise risk frameworks." },
   { i: Bot, t: "AI-Driven FP&A & Finance Automation", d: "Future-ready finance capabilities integrating AI tools, automation and digital finance workflows." },
@@ -816,10 +816,10 @@ function Path() {
 
 /* ---------------- Global Reach ---------------- */
 const REACH = [
-  { region: "India",       count: "500+", coords: [78.9629,  20.5937] as [number, number] },
-  { region: "GCC", count: "200+", coords: [54.3773,  24.4539] as [number, number] },
-  { region: "UK",          count: "120+", coords: [-1.1743,  52.3555] as [number, number] },
-  { region: "USA",         count: "180+", coords: [-95.7129, 37.0902] as [number, number] },
+  { region: "India",       count: "6000+", coords: [78.9629,  20.5937] as [number, number] },
+  { region: "GCC", count: "3000+", coords: [54.3773,  24.4539] as [number, number] },
+  { region: "UK",          count: "500+", coords: [-1.1743,  52.3555] as [number, number] },
+  { region: "USA",         count: "500+", coords: [-95.7129, 37.0902] as [number, number] },
 ];
 function GlobalReach() {
   return (
@@ -898,8 +898,8 @@ function GlobalReach() {
 
 /* ---------------- Comparison Table ---------------- */
 const COMPARE = [
-  ["Duration", "18 months", "6–12 months", "3–4 years", "4–5 years"],
-  ["Difficulty", "High", "Moderate–High", "High", "Very High"],
+  ["Duration", "12-18 months", "6–12 months", "2–4 years", "4–5 years"],
+  ["Difficulty", "Intensive", "Moderate", "Moderate", "Intensive"],
   ["Cost", "$$$", "$$", "$$", "$"],
   ["Career Outcome", "Public Acct / CFO", "Mgmt Accounting", "Global Finance", "Statutory / Audit"],
   ["Region", "US (Global)", "US (Global)", "UK (Global)", "India"],
@@ -940,7 +940,7 @@ function Comparison() {
 /* ---------------- Achievements ---------------- */
 function Achievements() {
   const items = [
-    "Mentored 6,000+ professionals across India & globally",
+    "Mentored 10,000+ professionals across India & globally",
     "Guided learners to earn: CPA, CA, CMA, CFA, CISA",
     "Built critical thinking, strategic finance & leadership",
     "Recognized for shaping CFO-ready talent",
@@ -989,17 +989,17 @@ function Achievements() {
 /* ---------------- Credentials ---------------- */
 function Credentials() {
   const left = [
-    ["🎓", "ICAEW Finalist"],
-    ["📘", "CA – ICAI"],
-    ["📊", "ACMA, CGMA – Global Management Accounting"],
+    ["📘", "CA"],
+    ["📊", "ACMA, CGMA"],
     ["📈", "CPA"],
-    ["🔐", "CISA – Information Systems Auditor"],
+    ["🔐", "CISA"],
+    ["🎓", "ICAEW Finalist"],    
     ["📚", "Investment Analysis & Portfolio Management (CFA Curriculum – Self-Directed)"],
   ];
   const right = [
     ["📌", "26+ years in CFO & Finance Director roles"],
     ["🌐", "Experience across India, GCC and global markets"],
-    ["👥", "Mentored 6,000+ professionals"],
+    ["👥", "Mentored 10,000+ professionals"],
     ["🧩", "Expertise in IFRS, FP&A, Risk, Valuation & Financial Modeling "],
     ["🎯", "Preparing professionals for modern CFO and finance leadership roles"],
   ];
@@ -1094,6 +1094,10 @@ const TESTI = [
   {
     q: "Coming from a non-US accounting background, I initially struggled with US GAAP and CPA concepts. Vijay’s structured teaching approach and industry examples made the learning process practical and manageable.",
     a: "Ahmed K.", r: "CPA Professional | Qatar",
+  },
+  {
+    q: "I’m extremely grateful to Vijay Narwani for being a constant support throughout my CFA journey. Clearing CFA levels in just 1.5 years while managing my Master’s and internship wouldn’t have been possible without his guidance, clarity, and mentorship.",
+    a: "Dishaan S.", r: "CFA Level III Passed | Ahmedabad",
   },
 ];
 function Testimonials() {
@@ -1254,7 +1258,7 @@ function Contact() {
     setLoading(true);
     try {
       await submit({ data: form });
-      toast.success("✅ Thank you! Vijay will respond within 24 hours.");
+      toast.success("✅ Thank you! We will respond within 24 hours.");
       setForm({ name: "", email: "", phone: "", program: "", message: "" });
       setErrors({});
     } catch {
@@ -1296,25 +1300,25 @@ function Contact() {
             <h3 className="font-display text-2xl font-bold text-navy">Contact Details</h3>
             <p className="mt-2 text-muted-foreground">Reach out — typically responds within 24 hours.</p>
             <div className="mt-6 space-y-4">
-              <a href="mailto:vijayknarwani@yahoo.com" className="flex items-center gap-4 p-4 bg-background rounded-xl border hover:border-gold transition-colors">
+              <a href="mailto:mmieducator@gmail.com" className="flex items-center gap-4 p-4 bg-background rounded-xl border hover:border-gold transition-colors">
                 <div className="h-11 w-11 rounded-lg bg-gold/15 text-gold flex items-center justify-center"><Mail className="h-5 w-5" /></div>
-                <div><div className="text-xs text-muted-foreground uppercase tracking-wider">Email</div><div className="font-semibold text-navy">vijayknarwani@yahoo.com</div></div>
+                <div><div className="text-xs text-muted-foreground uppercase tracking-wider">Email</div><div className="font-semibold text-navy">mmieducator@gmail.com</div></div>
               </a>
-              <a href="tel:+917048456589" className="flex items-center gap-4 p-4 bg-background rounded-xl border hover:border-gold transition-colors">
+              <a href="tel:+919974360624" className="flex items-center gap-4 p-4 bg-background rounded-xl border hover:border-gold transition-colors">
                 <div className="h-11 w-11 rounded-lg bg-gold/15 text-gold flex items-center justify-center"><Phone className="h-5 w-5" /></div>
-                <div><div className="text-xs text-muted-foreground uppercase tracking-wider">India</div><div className="font-semibold text-navy">+91 70484 56589</div></div>
+                <div><div className="text-xs text-muted-foreground uppercase tracking-wider">India</div><div className="font-semibold text-navy">+91 99743 60624</div></div>
               </a>
               <a href="tel:+97466031216" className="flex items-center gap-4 p-4 bg-background rounded-xl border hover:border-gold transition-colors">
                 <div className="h-11 w-11 rounded-lg bg-gold/15 text-gold flex items-center justify-center"><Phone className="h-5 w-5" /></div>
                 <div><div className="text-xs text-muted-foreground uppercase tracking-wider">Qatar</div><div className="font-semibold text-navy">+974 6603 1216</div></div>
               </a>
-              <a href="https://linkedin.com/in/ca-vijay-narwani-fca-acmacgma-cpa-cisa" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-background rounded-xl border hover:border-gold transition-colors">
+              <a href="https://linkedin.com/in/cavijay" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-background rounded-xl border hover:border-gold transition-colors">
                 <div className="h-11 w-11 rounded-lg bg-gold/15 text-gold flex items-center justify-center"><Linkedin className="h-5 w-5" /></div>
                 <div><div className="text-xs text-muted-foreground uppercase tracking-wider">LinkedIn</div><div className="font-semibold text-navy">Vijay Narwani</div></div>
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-background rounded-xl border hover:border-gold transition-colors">
+              <a href="https://www.instagram.com/malabarmaestroinstitute" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-background rounded-xl border hover:border-gold transition-colors">
                 <div className="h-11 w-11 rounded-lg bg-gold/15 text-gold flex items-center justify-center"><Instagram className="h-5 w-5" /></div>
-                <div><div className="text-xs text-muted-foreground uppercase tracking-wider">Instagram</div><div className="font-semibold text-navy">@mmieducator</div></div>
+                <div><div className="text-xs text-muted-foreground uppercase tracking-wider">Instagram</div><div className="font-semibold text-navy">Malabar Maestro Institute</div></div>
               </a>
             </div>
             <blockquote className="mt-8 border-l-4 border-gold pl-5 italic text-lg text-navy font-display">
@@ -1342,7 +1346,7 @@ function Footer() {
               <img src={logo} alt="MMI Educator" className="h-12 w-12 rounded-lg" width={48} height={48} />
               <div>
                 <div className="font-display text-xl font-bold">MMI Educator</div>
-                <div className="text-xs text-gold">Vijay Narwani</div>
+                <div className="text-xs text-gold">Global Finance Learning</div>
               </div>
             </div>
             <p className="mt-4 text-sm text-white/70">Empowering Global Leaders in Finance & Business.</p>
@@ -1358,7 +1362,7 @@ function Footer() {
           <div>
             <h4 className="font-display font-bold text-gold mb-4">Programs</h4>
             <ul className="space-y-2 text-sm text-white/75">
-              {["CPA Prep", "CMA Prep", "ACCA Prep", "Financial Modeling", "FP&A with AI", "Custom Corporate"].map((p) => (
+              {["CPA Prep", "CFA Prep", "CMA Prep", "ACCA Prep", "Financial Modeling", "FP&A with AI", "Custom Corporate"].map((p) => (
                 <li key={p}><a href="#programs" className="hover:text-gold transition-colors">{p}</a></li>
               ))}
             </ul>
@@ -1366,19 +1370,20 @@ function Footer() {
           <div>
             <h4 className="font-display font-bold text-gold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-white/75">
-              <li><a href="mailto:vijayknarwani@yahoo.com" className="hover:text-gold">vijayknarwani@yahoo.com</a></li>
+              <li><a href="mailto:mmieducator@gmail.com" className="hover:text-gold">mmieducator@gmail.com</a></li>
+              <li><a href="tel:+919974360624" className="hover:text-gold">+91 99743 60624</a></li>
               <li><a href="tel:+917048456589" className="hover:text-gold">+91 70484 56589</a></li>
               <li><a href="tel:+97466031216" className="hover:text-gold">+974 6603 1216</a></li>
             </ul>
             <div className="mt-4 flex gap-3">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="h-9 w-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:text-navy transition-colors"><Linkedin className="h-4 w-4" /></a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="h-9 w-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:text-navy transition-colors"><Instagram className="h-4 w-4" /></a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="h-9 w-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:text-navy transition-colors"><Youtube className="h-4 w-4" /></a>
+              <a href="https://linkedin.com/in/cavijay" target="_blank" rel="noopener noreferrer" className="h-9 w-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:text-navy transition-colors"><Linkedin className="h-4 w-4" /></a>
+              <a href="https://www.instagram.com/malabarmaestroinstitute" target="_blank" rel="noopener noreferrer" className="h-9 w-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:text-navy transition-colors"><Instagram className="h-4 w-4" /></a>
+              <a href="https://youtube.com/@malabarmaestroinstitute" target="_blank" rel="noopener noreferrer" className="h-9 w-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:text-navy transition-colors"><Youtube className="h-4 w-4" /></a>
             </div>
           </div>
         </div>
         <div className="mt-12 pt-6 border-t border-white/10 text-center text-sm text-white/60">
-          © 2026 Vijay Narwani | MMI Educator. All Rights Reserved.
+          © 2026 MMI Educator. All Rights Reserved.
         </div>
       </div>
     </footer>
@@ -1390,7 +1395,7 @@ function Floating() {
   return (
     <>
       <a
-        href="https://linkedin.com"
+        href="https://linkedin.com/in/cavijay"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="LinkedIn"
