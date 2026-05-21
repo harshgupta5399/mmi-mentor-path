@@ -105,7 +105,7 @@ function Navbar() {
     ["About MMI", "#about"],
     ["Expertise", "#expertise"],
     ["Programs", "#programs"],
-    ["Video Lessons", "#videos"],
+    // ["Video Lessons", "#videos"],
     ["Testimonials", "#testimonials"],
     ["Contact", "#contact"],
   ];
@@ -186,12 +186,12 @@ function Hero() {
               <a href="#programs">Explore Programs <ArrowRight className="ml-1 h-4 w-4" /></a>
             </Button>
             <Dialog>
-              <DialogTrigger asChild>
+              {/* <DialogTrigger asChild>
                 <Button variant="outlineWhite" size="xl">
                   <Play className="mr-2 h-4 w-4 fill-current" /> Watch Mentor Introduction
                 </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-3xl p-0 overflow-hidden bg-black border-0">
+              </DialogTrigger> */}
+              {/* <DialogContent className="max-w-3xl p-0 overflow-hidden bg-black border-0">
                 <div className="aspect-video">
                   <iframe
                     className="w-full h-full"
@@ -201,7 +201,7 @@ function Hero() {
                     allowFullScreen
                   />
                 </div>
-              </DialogContent>
+              </DialogContent> */}
             </Dialog>
           </div>
           <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/75">
@@ -816,10 +816,10 @@ function Path() {
 
 /* ---------------- Global Reach ---------------- */
 const REACH = [
-  { region: "India",       count: "6000+", coords: [78.9629,  20.5937] as [number, number] },
-  { region: "GCC", count: "3000+", coords: [54.3773,  24.4539] as [number, number] },
-  { region: "UK",          count: "500+", coords: [-1.1743,  52.3555] as [number, number] },
-  { region: "USA",         count: "500+", coords: [-95.7129, 37.0902] as [number, number] },
+  { region: "India", count: "6000+", coords: [78.9629, 20.5937] as [number, number] },
+  { region: "GCC", count: "3000+", coords: [54.3773, 24.4539] as [number, number] },
+  { region: "UK", count: "500+", coords: [-1.1743, 52.3555] as [number, number] },
+  { region: "USA", count: "500+", coords: [-95.7129, 37.0902] as [number, number] },
 ];
 function GlobalReach() {
   return (
@@ -845,7 +845,7 @@ function GlobalReach() {
                       geography={geo}
                       style={{
                         default: { fill: "rgba(255,255,255,0.08)", stroke: "rgba(255,255,255,0.15)", strokeWidth: 0.5, outline: "none" },
-                        hover:   { fill: "rgba(201,168,76,0.25)", stroke: "rgba(201,168,76,0.5)", strokeWidth: 0.5, outline: "none" },
+                        hover: { fill: "rgba(201,168,76,0.25)", stroke: "rgba(201,168,76,0.5)", strokeWidth: 0.5, outline: "none" },
                         pressed: { fill: "rgba(201,168,76,0.35)", outline: "none" },
                       }}
                     />
@@ -855,17 +855,17 @@ function GlobalReach() {
               {REACH.map((r) => (
                 <Marker key={r.region} coordinates={r.coords}>
                   {/* Three staggered expanding rings for a spreading glow effect */}
-                  <circle r={8}  fill="#C9A84C" opacity={0}>
-                    <animate attributeName="r"       from="6"   to="28"  dur="2.4s" begin="0s"    repeatCount="indefinite" />
-                    <animate attributeName="opacity" from="0.6" to="0"   dur="2.4s" begin="0s"    repeatCount="indefinite" />
+                  <circle r={8} fill="#C9A84C" opacity={0}>
+                    <animate attributeName="r" from="6" to="28" dur="2.4s" begin="0s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" from="0.6" to="0" dur="2.4s" begin="0s" repeatCount="indefinite" />
                   </circle>
-                  <circle r={8}  fill="#C9A84C" opacity={0}>
-                    <animate attributeName="r"       from="6"   to="22"  dur="2.4s" begin="0.8s"  repeatCount="indefinite" />
-                    <animate attributeName="opacity" from="0.5" to="0"   dur="2.4s" begin="0.8s"  repeatCount="indefinite" />
+                  <circle r={8} fill="#C9A84C" opacity={0}>
+                    <animate attributeName="r" from="6" to="22" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" from="0.5" to="0" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
                   </circle>
-                  <circle r={8}  fill="#C9A84C" opacity={0}>
-                    <animate attributeName="r"       from="6"   to="16"  dur="2.4s" begin="1.6s"  repeatCount="indefinite" />
-                    <animate attributeName="opacity" from="0.4" to="0"   dur="2.4s" begin="1.6s"  repeatCount="indefinite" />
+                  <circle r={8} fill="#C9A84C" opacity={0}>
+                    <animate attributeName="r" from="6" to="16" dur="2.4s" begin="1.6s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" from="0.4" to="0" dur="2.4s" begin="1.6s" repeatCount="indefinite" />
                   </circle>
                   {/* Solid dot on top */}
                   <circle r={6} fill="#C9A84C" stroke="white" strokeWidth={1.5} />
@@ -993,7 +993,7 @@ function Credentials() {
     ["📊", "ACMA, CGMA"],
     ["📈", "CPA"],
     ["🔐", "CISA"],
-    ["🎓", "ICAEW Finalist"],    
+    ["🎓", "ICAEW Finalist"],
     ["📚", "Investment Analysis & Portfolio Management (CFA Curriculum – Self-Directed)"],
   ];
   const right = [
@@ -1238,7 +1238,7 @@ function Mission() {
 
 /* ---------------- Contact ---------------- */
 function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", program: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", country: "", program: "", message: "" });
   const [errors, setErrors] = useState<{ email?: string; phone?: string }>({});
   const [loading, setLoading] = useState(false);
   const submit = useServerFn(submitContact);
@@ -1259,7 +1259,7 @@ function Contact() {
     try {
       await submit({ data: form });
       toast.success("✅ Thank you! We will respond within 24 hours.");
-      setForm({ name: "", email: "", phone: "", program: "", message: "" });
+      setForm({ name: "", email: "", phone: "", country: "", program: "", message: "" });
       setErrors({});
     } catch {
       toast.error("Something went wrong. Please try again.");
@@ -1267,6 +1267,7 @@ function Contact() {
       setLoading(false);
     }
   };
+
   return (
     <section id="contact" className="py-24 bg-white">
       <div className="container mx-auto px-4">
@@ -1275,10 +1276,27 @@ function Contact() {
         <div className="mt-14 grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
           <form onSubmit={handleSubmit} className="bg-background p-8 rounded-2xl border reveal space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
-              <div><Label htmlFor="c-name">Full Name</Label><Input id="c-name" className="mt-1.5" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} /></div>
-              <div><Label htmlFor="c-email">Email</Label><Input id="c-email" type="email" className={`mt-1.5 ${errors.email ? "border-red-500" : ""}`} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />{errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}</div>
+              <div>
+                <Label htmlFor="c-name">Full Name</Label>
+                <Input id="c-name" className="mt-1.5" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+              </div>
+              <div>
+                <Label htmlFor="c-email">Email</Label>
+                <Input id="c-email" type="email" className={`mt-1.5 ${errors.email ? "border-red-500" : ""}`} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
+                {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
+              </div>
             </div>
-            <div><Label htmlFor="c-phone">Phone</Label><Input id="c-phone" className={`mt-1.5 ${errors.phone ? "border-red-500" : ""}`} value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />{errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone}</p>}</div>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="c-phone">Phone</Label>
+                <Input id="c-phone" className={`mt-1.5 ${errors.phone ? "border-red-500" : ""}`} value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
+                {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone}</p>}
+              </div>
+              <div>
+                <Label htmlFor="c-country">Country</Label>
+                <Input id="c-country" className="mt-1.5" placeholder="e.g. India, UAE, UK" value={form.country} onChange={(e) => setForm({ ...form, country: e.target.value })} />
+              </div>
+            </div>
             <div>
               <Label>Interested Program</Label>
               <Select value={form.program} onValueChange={(v) => setForm({ ...form, program: v })}>
@@ -1290,7 +1308,10 @@ function Contact() {
                 </SelectContent>
               </Select>
             </div>
-            <div><Label htmlFor="c-msg">Message</Label><Textarea id="c-msg" rows={4} className="mt-1.5" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} /></div>
+            <div>
+              <Label htmlFor="c-msg">Message</Label>
+              <Textarea id="c-msg" rows={4} className="mt-1.5" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
+            </div>
             <Button type="submit" variant="gold" size="lg" className="w-full" disabled={loading}>
               {loading ? "Sending…" : <>Send Message <ArrowRight className="ml-1 h-4 w-4" /></>}
             </Button>
@@ -1354,7 +1375,9 @@ function Footer() {
           <div>
             <h4 className="font-display font-bold text-gold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm text-white/75">
-              {[["About", "#about"], ["Expertise", "#expertise"], ["Video Lessons", "#videos"], ["Testimonials", "#testimonials"], ["Contact", "#contact"]].map(([l, h]) => (
+              {[["About", "#about"], ["Expertise", "#expertise"], 
+              // [  "Video Lessons", "#videos"],
+                 ["Testimonials", "#testimonials"], ["Contact", "#contact"]].map(([l, h]) => (
                 <li key={h}><a href={h} className="hover:text-gold transition-colors">{l}</a></li>
               ))}
             </ul>
@@ -1430,7 +1453,7 @@ function Index() {
       <Specializations />
       <Programs />
       <Path />
-      <VideoHub />
+      {/* <VideoHub /> */}
       <Teaching />
       <GlobalReach />
       <Comparison />
@@ -1438,8 +1461,8 @@ function Index() {
       <Credentials />
       <ContentDev />
       <Testimonials />
-      <VideoTesti />
-      <LeadMagnet />
+      {/* <VideoTesti /> */}
+      {/* <LeadMagnet /> */}
       <Mission />
       <Contact />
       <Footer />

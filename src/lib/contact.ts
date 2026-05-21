@@ -12,6 +12,7 @@ const schema = z.object({
     .string()
     .optional()
     .refine((v) => !v || /^[+\d][\d\s\-().]{5,19}$/.test(v), "Invalid phone number"),
+  country: z.string().optional(),
   program: z.string().optional(),
   message: z.string().optional(),
 });
@@ -38,6 +39,7 @@ export const submitContact = createServerFn({ method: "POST" })
       name: data.name,
       email: data.email,
       phone: data.phone ?? null,
+      country: data.country ?? null,
       program: data.program ?? null,
       message: data.message ?? null,
     });
